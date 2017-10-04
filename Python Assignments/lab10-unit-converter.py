@@ -20,7 +20,7 @@ Version 2
 #print(distance + ' feet is equivalent to ' + conversion + ' meters.')
 
 '''
-Version 2
+Version 2 & 3
 
 Allow the user to also enter the units. Then depending on the units, convert the distance into meters. 
 The units we'll allow are feet, miles, meters, and kilometers.
@@ -34,6 +34,13 @@ Below is some sample input/output:
 > what is the distance? 100
 > what are the units? mi
 > 100 mi is 160934 m
+
+Version 3
+
+Add support for yards, and inches.
+
+1 yard is 0.9144 m
+1 inch is 0.0254 m
 '''
 
 distance = input('What is the distance you\'d like to convert? ')
@@ -62,5 +69,14 @@ elif units == 'km' or units == 'kilometers':
     distance = str(distance)
     print(distance + ' kilometers is equivalent to ' + conversion + ' meters.')
 
+elif units == 'yd' or units == 'yards':
+    conversion = distance * 0.9144
+    conversion = str(conversion)[:6]
+    distance = str(distance)
+    print(distance + ' yards is equivalent to ' + conversion + ' meters.')
 
-
+elif units == 'in' or units == 'inches':
+    conversion = distance * 0.0254
+    conversion = str(conversion)[:6]
+    distance = str(distance)
+    print(distance + ' inches is equivalent to ' + conversion + ' meters.')

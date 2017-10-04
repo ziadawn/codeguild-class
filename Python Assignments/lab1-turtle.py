@@ -1,12 +1,15 @@
-#Lab 1: stick figure using turtle, with friends!
-
+'''
+Lab 1: stick figure using turtle, with friends!
+I did three people, in different colors.
+'''
 
 from turtle import *
+
 
 fillcolor('purple')
 pencolor('purple')
 
-left(180)
+left(180) #rotate starting position of turtle so my person isn't doing a headstand
 
 #begin with head
 edge_length = 200
@@ -22,9 +25,10 @@ while i < n_sides:
 
 end_fill()
 
-#begin body
-pensize(10)
 
+pensize(10) #thicker pen for body so it's mmore solid
+
+#begin body
 left(90)
 forward(150)
 
@@ -48,7 +52,7 @@ forward(75)
 left(180)
 forward(150)
 
-#getting back to neck
+#getting back to neck so next person starts from the same place (the head)
 left(180)
 forward(75)
 right(90)
@@ -169,27 +173,5 @@ right(90)
 forward(50)
 right(90)
 
-#moving to next person
-penup()
-forward(200)
-pendown()
-
 done()
 
-
-
-#makes a pretty spiral that twists
-#fillcolor('purple')
-
-#n_sides = 7
-#edge_length = 0
-
-#i = 0
-#begin_fill()
-#while i < 150:
-#	forward(edge_length)
-#	right(360/n_sides)
-#	i = i + 1
-#	edge_length = edge_length + 1
-#end_fill()
-#done()

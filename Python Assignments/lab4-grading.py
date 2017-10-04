@@ -1,7 +1,9 @@
-
+'''
+Lab 4, a grade converter
+'''
 
 grade = input('What grade did you get, in numbers? ')
-grade = int(grade)
+grade = int(grade) #convert string (user's grade) to int so comptuer can read it
 
 if grade >= 90:
     print('A')

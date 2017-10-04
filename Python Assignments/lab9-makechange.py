@@ -46,13 +46,13 @@ print(f'You have {quarters} quarters, {dimes} dimes, {nickles} nickels, and {pen
 
 
 new_dollar_amount = input('And how much money do you have in dollars? ')
-new_dollar_amount = float(new_dollar_amount)
+new_dollar_amount = float(new_dollar_amount) #convert to float! Ints don't have decimal places, so I need a float to work
 
 new_pennies = new_dollar_amount * 100
 new_pennies = str(new_pennies)
 
 print('You have ' + new_pennies + ' pennies!')
-
+#why does my answer print with a .0 at the enddddd why???? it's really ugly
 
 '''
 Can I make it so that, if there is just one of something, it doesn't pluralize the output? eg: "You have 1 quarter" ?

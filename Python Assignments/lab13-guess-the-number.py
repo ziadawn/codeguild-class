@@ -28,10 +28,10 @@ while guess != x and i < 11:
     guess = input('incorrect. guess again! ')
     guess = int(guess)  #had to remember to do this here, too!
     i = i + 1
-    if i == 10:     #user only gets to guess 10 times
-        print('you lose. goodbye!')
-        break
-    if guess == x:
-        print('good job! you got it right!')
-        break
+
+if guess == x:
+    print('good job! you got it right in ' + str(i) + ' guesses!')  #using i to track guesses is what I insert here
+else:
+    print('you lose. goodbye!') #put this AFTER the you-win clause, so if you guess on last guess you still win
+
 

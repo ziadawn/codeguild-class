@@ -23,23 +23,22 @@ dollar_amount = int(dollar_amount)
 #I need to divide that number by 25, to get the number of quarters. Then the remainder by 10, for dimes, and so on.
 
 quarters = dollar_amount // 25 #set variable
-quarters = quarters
+#quarters = quarters -- eliminated superfluous code! yay!
 
 dollar_amount -= quarters * 25  # I am redefining my variables throughout as the code runs. Here, dollar_amount is no longer
                                 # whatever the user input, but rather, a new number that we do new math on.
-
 dimes = dollar_amount // 10
-dimes = dimes
+#dimes = dimes
 
 dollar_amount -= dimes * 10
 
 nickles = dollar_amount // 5
-nickles = nickles
+#nickles = nickles
 
 dollar_amount -= nickles * 5
 
 pennies = dollar_amount // 1
-pennies = pennies
+#pennies = pennies
 
 print(f'You have {quarters} quarters, {dimes} dimes, {nickles} nickels, and {pennies} pennies.')
 #the f and squigle brackets mean I don't have to keep converting back and forth from ints to strings. Tip from Nick!

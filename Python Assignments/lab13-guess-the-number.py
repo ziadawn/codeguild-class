@@ -23,9 +23,14 @@ x = random.randint(1,10)
 guess = input('guess the number! ')
 guess = int(guess)  #converted to int so computer can compare the numbers.
 
-while guess != x:
+i = 0
+while guess != x and i < 11:
     guess = input('incorrect. guess again! ')
     guess = int(guess)  #had to remember to do this here, too!
+    i = i + 1
+    if i == 10:     #user only gets to guess 10 times
+        print('you lose. goodbye!')
+        break
     if guess == x:
         print('good job! you got it right!')
         break

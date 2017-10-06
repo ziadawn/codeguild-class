@@ -25,4 +25,4 @@ elif computer_answer == 'scissors' and user_answer == 'rock':
 elif computer_answer == 'rock' and user_answer == 'paper':
     print('Computer chose rock. Surely your victory is a fluke, not skill.')
 elif computer_answer == 'paper' and user_answer == 'scissors':
-    print('Computer chose paper. Congratulations, you win!')
+    print('Computer chose paper. I never lose. I either win or I learn.')

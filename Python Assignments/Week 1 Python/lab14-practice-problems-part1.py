@@ -8,7 +8,7 @@ def count_letter(string, letter):
     count = 0
     for char in string:
         if char == letter:
-            count = count + 1
+            count = count + 1   # can also be count += 1
     return count
 
 print(count_letter('antidisestablishmentterianism', 'a'))
@@ -20,8 +20,8 @@ Convert input strings to lowercase without any surrounding whitespace.
 '''
 
 def lower_case(caps_word):
-    s = caps_word.lower()
-    print(s)
+    s = caps_word.lower()   # somehow I missed the strip part of this lab, should fix later. Trying to fix in class broke things!
+    print(s)    # should do return, not print. Print means we can't use it later, whereas return we can
 
 lower_case('NANNANANANA BATMAN')
 lower_case('SUPER!')
@@ -66,12 +66,12 @@ Write a function that returns the maximum of 3 parameters.
 '''
 
 def maximum_of_three(a, b, c):
-    max = a             #compare b and c to a, reset max to b or c if they are biggger
+    max = a             # compare b and c to a, reset max to b or c if they are biggger
     if b > max:
         max = b
     if c > max:
         max = c
-    return max
+    return max      # another way to do things: return a if a > b else b -- this just does and if/else statement in one line. Don't use too much!
 
 print(maximum_of_three(345, 23579, 101))
 print(maximum_of_three(2734, 235, 4618))

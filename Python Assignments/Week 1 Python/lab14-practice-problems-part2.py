@@ -4,6 +4,7 @@ Write functions to find the minimum, maximum, mean, and (optionally) mode of a l
 '''
 
 def minimum(nums):
+    print("test", a)
     min = a
     i = 0
     while i < len(nums):

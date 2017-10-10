@@ -58,7 +58,7 @@ while game_play < 1000:       # this is the loop of game play. Low number to tes
 print('After running the numbers 1000 times, your balance is $' + str(balance))
 
 
-
+# How I'd like to change: have it tell you how many times you won, as well as ending balance
 
 
 '''

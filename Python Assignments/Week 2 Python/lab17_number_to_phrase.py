@@ -48,7 +48,7 @@ if num > 100:
 else:
     print(ones_place(num))
 
-
+# currently breaks if over 1000; a change for later
 
 '''
 Original version:

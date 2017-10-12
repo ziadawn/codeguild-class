@@ -43,12 +43,14 @@ def hundreds_place(num):
         return hundreds_list
 
 
-if num > 100:
+if num > 999:
+    print('NO. Do better.')
+elif num > 100:
     print(hundreds_place(num))
-else:
+elif num < 100:
     print(ones_place(num))
 
-# currently breaks if over 1000; a change for later
+
 
 '''
 Original version:

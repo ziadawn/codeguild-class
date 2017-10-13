@@ -9,7 +9,7 @@ Version 3 (optional)
 Convert a number to roman numerals.
 '''
 
-num = int(input('What is the number? '))
+num = int(input('What is the number? '))        # convert to int right away
 
 ones_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 teens_list = ["ten", 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
@@ -23,8 +23,8 @@ def ones_place(num):        # should rename this variable to something that make
     elif num < 20:
         return teens_list[num - 10]     # because teen - 10 = the place in the list
     elif num < 100:
-        tens_digit = num // 10
-        ones_digit = num % 10
+        tens_digit = num // 10          # throwing out the remainder, I'm left with a whole number to match to index in tens_list
+        ones_digit = num % 10           # just getting the remainder, finding in ones_list
         if ones_digit == 0:
             return tens_list[tens_digit - 2]
         else:
@@ -44,7 +44,7 @@ def hundreds_place(num):
 
 
 if num > 999:
-    print('NO. Do better.')
+    print('NO. Do better. Pick a number less than 1000.')
 elif num > 100:
     print(hundreds_place(num))
 elif num < 100:

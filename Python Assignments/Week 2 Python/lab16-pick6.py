@@ -17,11 +17,11 @@ balance = 0
 def get_ticket():       # did I actually write a real function here? Yes! Yay!
     ticket = []
     for i in range(6):
-        num = random.randint(1, 99)
-        ticket.append(num)
+        num = random.randint(1, 99)     # randint for numbers!
+        ticket.append(num)              # adding the random number to my empty ticket list
     return ticket
 
-pick6 = get_ticket()
+pick6 = get_ticket()        # calling my get_ticket function above
 
 print(pick6)
 
@@ -34,10 +34,10 @@ while game_play < 1000:       # this is the loop of game play. Low number to tes
     count = 0
 
     for i in range(len(pick6)):
-        if pick6[i] == ticket[i]:
+        if pick6[i] == ticket[i]:   # index matches corresponding index
             count += 1
 
-    if count == 0:
+    if count == 0:          # I bet I could make this prettier
         pass
     elif count == 1:
         balance += 4

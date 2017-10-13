@@ -14,7 +14,7 @@ if question == 'encrypting':
     encryption = ''     # set a blank string, OUTSIDE the loop, to append the encryption to.
                         # This means we print like words rather than individual characters at at ime
     for char in message:
-        index = english.find(char)
+        index = english.find(char)  # define index in engligh alphabet, then use the index to find the output in rotated alphabet
         encryption += rot13[index]  # adding to the string we'll print
 
     print(encryption)  # this also goes outside the for loop, so it prints all at once

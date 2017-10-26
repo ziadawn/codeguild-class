@@ -51,3 +51,5 @@ while not is_sorted(random_list):       # works just like a while loop, but back
     count += 1      # so we know how many times it sorted!
 
 print(random_list, count)
+
+# to add: a limit on how long of a list it will run. Cap at 10!

@@ -32,12 +32,26 @@ def valleys(set):
 
 def peaks_and_valleys(set):
     peaks_and_valleys = []
-    peaks_and_valleys.append(peaks(set))        # remember to call the function!
-    peaks_and_valleys.append(valleys(set))
-    return peaks_and_valleys
+    peaks_and_valleys.extend(peaks(set))        # remember to call the function!
+    peaks_and_valleys.extend(valleys(set))      # .extend attaches one at a time, rather than a whole lost and appending that to another whole list
+    return peaks_and_valleys                    # my variable has the same name as the function which can have weird side effects. Change?
+
 
 print(peaks(data))
 print(valleys(data))
 
 print(peaks_and_valleys(data))
+
+x_list = ['']
+
+for num in range(9, 0, -1):     # the -1 means we work backwards through the list
+    for i in data:
+        if i >= num:
+            x_list.append('X')
+        else:
+            x_list.append(' ')
+    x_list.append('\n')
+
+print('  '.join(x_list))       # .join takes the string in front of it and puts it between every element of a list. Helpful!
+print(data)
 

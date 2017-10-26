@@ -1,22 +1,25 @@
 '''
 Lab: Socks
+V1:
+You've just finished laundry and your expansive sock collection is in complete disorder.
+Sort your socks into pairs and pull out any loners.
+Generate a list of 100 random socks, randomly chosen from a set of types.
 
-You've just finished laundry and your expansive sock collection is in complete disorder. Sort your socks into pairs and pull out any loners.
-
-Generate a list of 100 random socks, randomly chosen from a set of types: sock_types = ['ankle', 'crew', 'calf', 'thigh']
-
-Find the number of duplicates and loners for each sock type. Hint: dictionaries are helpful here.
-
-
+V2:
+Now you have a mix of types and colors.
+Represent socks using tuples containing one color and one type ('black', 'crew').
+Randomly generate these, and then group them into pairs.
 '''
 
 import random
 
-sock_types = ['ankle', 'crew', 'OTK', 'thigh', 'knee']
+sock_types = ['ankle', 'crew', 'OTK', 'thigh', 'knee', 'legwarmers']
+sock_colors = ['black', 'grey', 'striped', 'purple']
 socks = []
 for i in range(100):
-    sock = random.choice(sock_types)
-    socks.append(sock)
+    type_sock = random.choice(sock_types)
+    color_sock = random.choice(sock_colors)
+    socks.append((type_sock, color_sock))
 print(socks)
 
 happy_socks = {}        # matched socks

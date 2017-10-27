@@ -36,7 +36,6 @@ def create_new_contact(keys):       # if this used more generic variables, it co
     print(new_contact)
     return new_contact
 
-
 def retrieve_contact(contact_list, who_find):
     run = "y"
     found = []
@@ -51,8 +50,8 @@ def retrieve_contact(contact_list, who_find):
             break
             # run = input('\nThere are no matches for that entry. Would you like to search again? (y/n): ').lower()
             # who_find = input("\nWhat are you looking for: ")
+            # TODO -- loop within function instead of back to main code
     return found
-
 
 def update_contact(contact_list):
     to_update = input('\nWhich contact would you like to update? ')
@@ -68,6 +67,7 @@ def update_contact(contact_list):
         edit_index = contact_list.index(edit_contact)
     else:
         # print("\nThere are no matches for that entry.\n")
+        # TODO -- ask if want to search again
         return
 
     print(edit_contact)
@@ -93,13 +93,16 @@ def delete_contact(contact_list):
         edit_contact = found[0]
     else:
         print("\nThere are no matches for that entry. Would you like to search again? y/n\n")
-        return
+        return      # TODO -- loop within function instead of back to main code
+
+    # TODO -- print contact before confirming delete
+
     confirm_delete = input(f'\nAre you sure you want to delete {edit_contact["name"]}? This cannot be undone! (y/n) ')
     if confirm_delete == 'y':
         contact_list.remove(edit_contact)
 
 def format_dictionary(contact):
-    contact_entry = []                  # THIS WORKS, BUT I'D LIKE TO KEEP TWEAKING THIS FORMATTING, MAYBE AS A STRING?
+    contact_entry = []
     for key, value in contact.items():
         contact_entry.append(f'{key}: {value}')
     print(f'{contact_entry}\n')

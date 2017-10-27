@@ -36,6 +36,7 @@ def create_new_contact(keys):       # if this used more generic variables, it co
     print(new_contact)
     return new_contact
 
+
 def retrieve_contact(contact_list, who_find):
     run = "y"
     found = []
@@ -46,9 +47,12 @@ def retrieve_contact(contact_list, who_find):
                     found.append(contact)
                     break
         if not found:                       # could also do if len(found) = 0
-            run = input('\nThere are no matches for that entry. Would you like to search again? (y/n): ').lower()
-            who_find = input("\nWhat are you looking for: ")
+            print('\nThere are no matches for that entry.')
+            break
+            # run = input('\nThere are no matches for that entry. Would you like to search again? (y/n): ').lower()
+            # who_find = input("\nWhat are you looking for: ")
     return found
+
 
 def update_contact(contact_list):
     to_update = input('\nWhich contact would you like to update? ')
@@ -63,7 +67,7 @@ def update_contact(contact_list):
         edit_contact = found[0]
         edit_index = contact_list.index(edit_contact)
     else:
-        print("\nThere are no matches for that entry. Would you like to search again? y/n\n")
+        # print("\nThere are no matches for that entry.\n")
         return
 
     print(edit_contact)

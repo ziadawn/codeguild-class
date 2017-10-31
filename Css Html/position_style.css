@@ -1,0 +1,57 @@
+body {
+	height:100vh;
+    margin: 0;
+}
+
+/*this is the circle*/
+div div {
+	width:100px;
+	height:100px;
+	background: #465C69;
+	border-radius:50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+nav {
+	border-bottom:solid;
+	background:#333;
+    width:100%;
+    position: fixed;
+    z-index: 1;
+}
+
+nav > div {
+	height:120px;
+}
+
+/*this is "The Best"*/
+nav h1 {
+    position: absolute;
+    right: 30px;
+    top: 70px;
+}
+
+ul {
+	border-right: solid;
+	width: 100px;
+	height: 100%;
+	padding: 10px 0;
+	margin-top: 0px;
+    margin-left: 5px;
+    position: relative;
+    top: 120px
+}
+
+ul li:hover {
+	color: #465C69;
+}
+
+/*cat picture*/
+img {
+	width:500px;
+    position: relative;
+    left: 30%;
+    bottom: 600px;
+}

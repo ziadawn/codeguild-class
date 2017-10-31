@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    background-clip: border-box;
+}
+
+header[role=banner] {
+    background-color: #004F2D;
+    font-size: 40px;
+    color: #fff;
+    padding: 20px;
+}
+
+header[role=banner] h1 {
+    margin: 5px;
+}
+
+header[role=banner] h2 {
+    font-size: 30px;
+}
+
+.zen-resources {
+    background-color: #004F2D;
+    padding: 20px;
+    color: #fff;
+    font-size: larger;
+}
+
+.summary, .design-archives {
+    background-color: #0A8754;
+    padding: 20px;
+    color: #fff;
+    font-size: larger;
+}
+
+.preamble, .design-selection {
+    background-color: #508CA4;
+    padding: 20px;
+    color: #fff;
+    font-size: larger;
+}
+
+.main {
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #fff;
+    margin: 40px 150px;
+    padding: 20px;
+}
+
+a {
+    color: #63D471;
+}
+
+
+/*
+colors used:
+#fff
+#004F2D
+#0A8754
+#508CA4
+#63D471
+#2F4858
+ */

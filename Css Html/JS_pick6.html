@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        window.onload = function() {
+
+            function generate_ticket() {
+                let get_ticket = [];
+                for (let i = 0; i < 6; ++i) {
+                    get_ticket.push(Math.floor(Math.random() * 100)+1);
+                   }
+                return get_ticket
+            }
+
+            function count_matches(a, b) {
+                let winningAmounts = [0, 4, 7, 100, 50000, 1000000, 25000000];
+                let counter = 0;
+                for (let i = 0; i < 6; ++i) {
+                    if (a[i] === b[i]) {
+                        counter += 1;
+                    }
+                }
+                return winningAmounts[counter];
+            }
+
+            function play_again() {
+                let player_ticket = generate_ticket();
+                let winning_ticket = generate_ticket();
+                let total_winnings = 0;
+                let amount_spent = 0;
+                for (let i = 0; i < 1000; ++i) {
+                    winning_ticket = generate_ticket();
+                    total_winnings += count_matches(player_ticket, winning_ticket);
+                    amount_spent +=2;
+                }
+//                alert(`Out of 1000 tickets your total winnings are $${total_winnings} and you spent $${amount_spent}`);
+                return [total_winnings, amount_spent];
+            }
+
+
+            let player_ticket = generate_ticket();
+            let winning_ticket = generate_ticket();
+
+            let total_winnings = 0;
+
+
+            alert('Your pick6 ticket is: \n \n' + player_ticket.join(" ") + '\n \nClick OK to see if you are a winner!!!!');
+            alert('The winning numbers are \n \n' + winning_ticket.join(" "));
+
+
+            let random_variable = document.getElementById('winnings');
+            random_variable.innerText = 'Your winnings are $' + count_matches(player_ticket, winning_ticket);
+
+            let runAgain = document.querySelector('#runAgain');
+            runAgain.onclick = function() {
+                let result = play_again();
+                    total_winnings += result[0] - result[1];
+                let random_variable = document.getElementById('winnings');
+                    random_variable.innerText = 'You won $' + total_winnings;
+
+            }
+
+
+
+        }
+
+
+    </script>
+
+
+
+
+
+</head>
+<body>
+
+    <p id="winnings"></p>
+
+    <button id="runAgain">Click to play again!</button>
+
+    <p id="manyPlays"></p>
+
+
+</body>
+</html>
+
+
+<!--can I make the first winning ticket pull from the player ticket, 1-4 matching numbers, which give $,-->
+<!--which they then use to keep playing?-->
+
+<!--put into an array of ints-->
+
+
+
+<!--game_play = 0-->
+<!--while game_play < 1000:       # this is the loop of game play. Low number to test.-->
+    <!--ticket = get_ticket()-->
+    <!--balance = balance - 2-->
+    <!--count = 0-->
+
+    <!--for i in range(len(pick6)):-->
+        <!--if pick6[i] == ticket[i]:   # index matches corresponding index-->
+            <!--count += 1-->
+
+
+
+
+<!--print('After running the numbers 1000 times, your balance is $' + str(balance))-->
+
+            <!--let player_ticket = '';-->
+            <!--for (let i = 0; i < 6; ++i) {-->
+                <!--player_ticket += Math.floor(Math.random() * 100);-->
+                <!--player_ticket += ' '-->
+            <!--}-->
+            <!--alert('Your pick6 ticket is: \n' + player_ticket + '\nClick OK to see if you are a winner!!!!');-->
+
+
+            <!--let winning_ticket = '';-->
+            <!--for (let i = 0; i < 6; ++i) {-->
+                <!--winning_ticket += Math.floor(Math.random() * 100);-->
+                <!--winning_ticket += ' '-->
+            <!--}-->
+            <!--alert('The winning numbers are \n' + winning_ticket);-->
+
+            <!--let match_numbers = count_matches(winning_ticket, player_ticket);-->
+
+            <!--let winnings = 0;-->
+
+            <!--if (match_numbers === 0) {-->
+            <!--} else if (match_numbers === 1) {-->
+                <!--winnings += 4;-->
+            <!--} else if (match_numbers === 2) {-->
+                <!--winnings += 7;-->
+            <!--} else if (match_numbers === 3) {-->
+                <!--winnings += 100;-->
+            <!--} else if (match_numbers === 4) {-->
+                <!--winnings += 50000;-->
+            <!--} else if (match_numbers === 5) {-->
+                <!--winnings += 1000000;-->
+            <!--} else if (match_numbers === 6) {-->
+                <!--winnings += 25000000-->
+            <!--}-->

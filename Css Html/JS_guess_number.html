@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Guess the Number</title>
+
+    <!--<link rel="stylesheet" media="screen" href="JS_guess_number_style.css">-->
+    <meta name="game" content="Zia Dawn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-image: url("https://ak6.picdn.net/shutterstock/videos/5056436/thumb/1.jpg?i10c=img.resize(height:160)");
+            color: greenyellow;
+            font-size: x-large;
+        }
+
+        div {
+            font-size: large;
+            margin-top: 10px;
+            color: black;
+            background: greenyellow;
+            padding: 10px;
+            width: 250px;
+    </style>
+
+    <script>
+
+    window.onload = function() {
+
+        function pick_target_number() {
+            let target_num = Math.floor(Math.random() * 50);
+            return target_num;
+        }
+
+        let target_number = pick_target_number();
+
+        function check_guess(guess, target) {
+            if (guess === target) {
+                return guess + ' is the number. Good job!';
+            }
+            else if (guess >= target) {
+                return guess + ' is too high. Guess lower!';
+            }
+            else if (guess <= target) {
+                return guess + ' is too low. Guess higher!';
+            }
+        }
+
+        let bt_guess = document.getElementById('bt_guess');
+
+        bt_guess.onclick = function () {
+            let guess_input = document.getElementById('guess_input');
+            let result = check_guess(parseInt(guess_input.value), target_number);
+            document.getElementById('guesses').innerText += result + '\n';
+
+//            alert(check_guess(parseInt(guess_input.value), target_number));
+        };
+
+    }
+    </script>
+
+</head>
+<body>
+
+    <p> Guess a number between 1 and 50:</p>
+
+    <input id="guess_input" type="text" placeholder="enter a number"/>
+    <button id="bt_guess">guess!</button>
+
+    <div id="guesses">
+    </div>
+
+</body>
+</html>
+
+

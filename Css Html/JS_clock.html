@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Clock Lab</title>
+    <meta name="description" content="Description">
+    <!--<link rel="stylesheet" type="text/css" href="Style">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div id="clock_div">
+        <p> The current time is </p>
+        <p id='clock'></p>
+    </div>
+
+    <br />
+
+    <div id="stopwatch_div">
+        <p>Stopwatch</p>
+        <button id="bt_stopwatch">start</button>
+        <p id="active_stopwatch"></p>
+        <ol id="stopwatch_times"></ol>
+    </div>
+
+    <br />
+
+    <script>
+    //    document.getElementById('clock').innerHTML = Date();
+
+        let clock_display = setInterval(current_time, 1000);    // clock function refreshes every second
+
+        function current_time() {       // clock function to display current time. Refreshes every second, as set above
+            let x = new Date();
+            document.getElementById('clock').innerHTML = x.toLocaleTimeString();
+        }
+
+
+        let interval;       // this exists outside my function so I can stop and look at it
+
+        function stopwatch_run() {
+            let sw = new Date();
+            sw.setHours(0, 0, 0, 0);
+            interval = setInterval(function() {
+                sw.setMilliseconds(sw.getMilliseconds() + 100);
+                document.getElementById('active_stopwatch').innerHTML = `${sw.getHours()}:${sw.getMinutes()}:${sw.getSeconds()}:${sw.getMilliseconds()}`;
+            }, 100);
+            this.onclick = stopwatch_pause      // button becomes stop button, when stop button clicked, save and display time, reset
+
+        }
+
+        function stopwatch_pause() {
+            let stopwatch_times = document.getElementById('stopwatch_times');
+            let sw_times = active_stopwatch;
+            let li = document.createElement('li');      // creating new li tag for list in html
+            li.innerText = document.getElementById('active_stopwatch').innerText;   // setting the inner text of li based on stopwatch time
+            stopwatch_times.appendChild(li);            // appending li (child) to list (parent)
+            clearInterval(interval);
+            this.onclick = stopwatch_run
+
+        }
+
+         bt_stopwatch.onclick = stopwatch_run
+
+    </script>
+
+
+
+</body>
+</html>
+

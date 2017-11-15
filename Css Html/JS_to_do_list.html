@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <meta name="to_do_list" content="To Do List">
+    <!--<link rel="stylesheet" type="text/css" href="JS_to_do_list_style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            /*background-image: url("http://thelawofficeofmp.com/wp-content/uploads/2013/03/classical_letter_paper_vintage_backgrounds_for_presentations.jpg");*/
+            /*background-image: url("http://www.myfreetextures.com/wp-content/uploads/2014/10/vintage-old-paper-with-grunge.jpg");*/
+            /*color: #442102;*/
+            font-size: large;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        p:first-child {
+            font-size: x-large;
+            color: #6b3e1a;
+        }
+
+
+
+    </style>
+
+    <script>
+
+    window.onload = function() {
+
+        let bt_add = document.querySelector("#bt_add");     // need to declare the button before I can call it below
+
+        bt_add.onclick = function() {                      // can now call this button because I declared it above
+            let bt_complete = document.createElement('button');
+            let bt_delete = document.createElement('button');
+            let li = document.createElement('li');
+            let list_items = document.getElementById('list_items');
+            document.getElementById('list').appendChild(li);
+
+            li.innerText = list_items.value;
+            li.appendChild(bt_complete);
+            li.appendChild(bt_delete);
+
+            bt_complete.innerText = 'task complete!';
+            bt_delete.innerText = 'remove item';
+
+            bt_delete.onclick = function() {
+                if (confirm('Are you sure you want to delete this item?') === true) {
+                    this.parentElement.remove()
+                }
+            };
+
+            bt_complete.onclick = function() {
+                document.getElementById('done_list').appendChild(this.parentElement);
+                this.parentElement.classList.add('strikethrough');
+                this.onclick = function() {
+
+                }
+
+            }
+        }
+    }
+
+
+        </script>
+
+
+</head>
+<body>
+
+
+    <p> Enter your tasks and click the button to add them. </p>
+
+
+    <input id="list_items" type="text" placeholder="enter a task"/>
+    <button id="bt_add">add item</button>
+
+    <p>
+    To do list:
+        <ul id="list">
+        </ul>
+    </p>
+
+    <p>
+    Complete tasks:
+        <ul id="done_list">
+        </ul>
+    </p>
+
+
+</body>
+</html>

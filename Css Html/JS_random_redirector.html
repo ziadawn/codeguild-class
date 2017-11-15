@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="description" content="Description">
+    <!--<link rel="stylesheet" type="text/css" href="Style">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            background-image: url("https://az616578.vo.msecnd.net/files/2017/01/19/636204026635063944-1868870759_Cover%20photo.jpg");
+        }
+
+    </style>
+
+    <script>
+        window.onload = function() {
+            let urls = [
+                'http://isitraininginportland.com/',
+                'http://strangelykatie.tumblr.com/',
+                'http://iguanamouth.storenvy.com/collections/799275-dragon-hoards',
+                'https://www.instagram.com/accidentallywesanderson/?hl=en'
+            ];
+
+            function pick_url() {
+                return urls[Math.floor(Math.random() * urls.length)];
+               }
+
+            let bt_adventure = document.querySelector("#bt_adventure");
+
+            function redirect() {
+                window.location.assign(pick_url());
+            };
+
+            bt_adventure.onclick = function() {
+//              window.setTimeout(redirect, 5000);
+                let seconds_left = 5;
+                document.getElementById('countdown_div').innerHTML = seconds_left + " seconds until adventure!";
+                setInterval(function () {
+                    document.getElementById('countdown_div').innerHTML = --seconds_left + " seconds until adventure!";    // the inner html is what makes the numbers display
+
+                    if (seconds_left <= 0) {
+                        redirect()
+                    }
+                }, 1000);
+            }
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+<p>Feeling brave? Click on the button to be directed to a random page!</p>
+
+<button id="bt_adventure">I totally trust you!</button>
+
+<br /><br /><br />
+
+<div id="countdown_div"></div>
+
+</body>
+</html>

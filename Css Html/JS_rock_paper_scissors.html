@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+          function random_element(array) {
+                let random_index = Math.floor(Math.random()*array.length);
+                return array[random_index];
+            }
+
+          let computer_answers = ['rock', 'paper', 'scissors'];
+          let ca = random_element(computer_answers);
+
+
+          let player = prompt('Rock, paper, or scissors? ');
+//          alert(ca);
+
+    if (ca === player) {
+        alert('It\'s a tie!')
+    } else if (ca === 'scissors' && player === 'paper') {
+        alert('Computer chose scissors. Haha, fleshy human. You lost to me."!')
+    } else if (ca === 'rock' && player === 'scissors') {
+        alert('Computer chose rock. You lose! Your meat brain is no match for my digital genius!')
+    } else if (ca === 'paper' && player === 'rock') {
+        alert('Computer chose paper. Did you really think you would triumph in this feat of skill? You lose!')
+    } else if (ca === 'scissors' && player === 'rock') {
+        alert('Computer chose scissors. You got lucky this time, human.')
+    } else if (ca === 'rock' && player === 'paper') {
+        alert('Computer chose rock. Surely your victory is a fluke, not skill.')
+    } else if (ca === 'paper' && player === 'scissors') {
+        alert('Computer chose paper. Don\'t gloat, human. You cannot expect this coincidence to continue in further victories.')
+    }
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

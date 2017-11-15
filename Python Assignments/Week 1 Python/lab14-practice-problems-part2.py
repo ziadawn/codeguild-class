@@ -3,6 +3,8 @@ Problem 7
 Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
 '''
 
+# Dear zia fix your code love zia
+
 def minimum(nums):
     print("test", a)
     min = a

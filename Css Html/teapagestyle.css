@@ -1,0 +1,25 @@
+body, html {
+    margin: 40;
+    background-clip: border-box;
+    color: darkred;
+}
+
+div div {
+	width:150px;
+	height:150px;
+	background: #465C69;
+	border-radius:50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+h1 {
+    font-variant: small-caps;
+    color: rebeccapurple;
+    position: fixed;
+    z-index: 1;
+    font-size: 60px;
+}
+
+

@@ -19,44 +19,54 @@
 //    let ctx = canvas.getContext('2d');
 
     class Ball {
-        constructor(px, py, vx, vy, width, height) {       // px and py = location, vx and vy = velocity
-            this.width = width;
-            this.height = height;
-            this.px = Math.random() * (canvas.width - width);       // added so box doesn't go out of bounds
-            this.py = Math.random() * (canvas.height - height);
+        constructor(px, py, vx, vy, radius) {       // px and py = location, vx and vy = velocity
+//            this.width = width;
+//            this.height = height;
+            this.radius = radius;
+            this.px = Math.random() * (canvas.width - radius * 2) + radius;       // added so box doesn't go out of bounds
+            this.py = Math.random() * (canvas.height - radius* 2) + radius;     // subtract size of radius twice so that starting point is withing bounds of canvas
             this.vx = (2 * Math.random() - 1) * 10;             // velocity is random!
             this.vy = (2 * Math.random() - 1) * 10;
         }
     }
 
-    let ball = new Ball(0, 0, 10, 0, 30, 30);
+    let ball = new Ball(0, 0, 10, 0, 50);   // generate the ball wooooo
 
     function animate_ball() {
 
-        let ctx = canvas.getContext('2d');      // standard function to get drawing element of canvas
+        let ctx = canvas.getContext('2d');      // standard function to get 2d drawing element of canvas
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);   // redraw ball every time
 
         ctx.fillStyle = 'purple';
-        ctx.fillRect(ball.px, ball.py, ball.width, ball.height);
+//        ctx.fillRect(ball.px, ball.py, ball.width, ball.height); // this code replaced the the lines below when switching from box to ball
+        ctx.beginPath();        // balls are defined by drawing an arc, so this starts the arc...
+        ctx.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, false);
+        ctx.closePath();        // ... and this ends the arc
+        ctx.fill();
 
         ball.px += ball.vx;
         ball.py += ball.vy;
 
-        if (ball.px + ball.width > canvas.width || ball.px < 0) {
-            ball.vx *= -1;
+        ball.vy += 0.5;       // gravity. If I don't add friction, it keeps accelerating until it breaks. Whee!
+
+        if (ball.px + ball.radius > canvas.width || ball.px - ball.radius < 0) {
+            if(ball.px + ball.radius > canvas.width) ball.px = canvas.width - ball.radius;      // one-line if-statements don't need curly braces. They are more ugly, though
+            if(ball.px - ball.radius < 0) ball.px = ball.radius;
+            ball.vx *= -0.95;
         }
 
-        if (ball.py + ball.height > canvas.height || ball.py < 0) {
-            ball.vy *= -1;
+        if (ball.py + ball.radius > canvas.height || ball.py - ball.radius < 0) {
+            if(ball.py + ball.radius > canvas.height) ball.py = canvas.height - ball.radius;      // one-line if-statements don't need curly braces. They are more ugly, though
+            if(ball.py - ball.radius < 0) ball.py = ball.radius;
+            ball.vy *= -0.95;
         }
+
+
 
         window.requestAnimationFrame(animate_ball);
     }
 window.requestAnimationFrame(animate_ball);
-
-
-
 
 </script>
 

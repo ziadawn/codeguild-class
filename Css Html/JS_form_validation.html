@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Lab</title>
+    <meta name="form_validation_lab" content="form_validation_practice">
+    <!--<link rel="stylesheet" type="text/css" href="Style">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<form>
+    <div>
+        Username: <input id="username_input" type="text" name="username" placeholder="enter at least 6 characters">
+        <span id="username_error" style="display:none;color:red;">Username must be at least 6 characters</span>
+    </div>
+
+    <div>
+        Password: <input id="password_input" type="text" name="password" placeholder="enter at least 6 characters and one special character">
+         <span id="password_error" style="display:none;color:red;">Password must be at least 6 characters</span>
+    </div>
+
+    <div>
+        First & Last Name: <input id="name_input" type="text" name="first_last_name" placeholder="enter your first and last name with a space between">
+        <span id="name_error" style="display:none;color:red;">Please enter your first and last names</span>
+    </div>
+
+    <div>
+        Email Address: <input id="email_input" type="text" name="email" placeholder="enter your email address">
+        <span id="email_error" style="display:none;color:red;">Please enter a valid email address</span>
+    </div>
+
+    <div>
+        Phone Number: <input id="phone_input" type="text" name="phone" placeholder="enter your phone number">
+        <span id="phone_error" style="display:none;color:red;">Please enter a valid phone number</span>
+    </div>
+
+    <div>
+        Date of Birth: <input id="birthday_input" type="text" name="birthday" placeholder="day/month/year">
+        <span id="birthday_error" style="display:none;color:red;">Please enter a valid date</span>
+    </div>
+
+    <div>
+        Social Security Number: <input id="ssnumber_input" type="text" name="ssnumber" placeholder="111-11-1111">
+        <span id="ssnumber_error" style="display:none;color:red;">Please enter a valid social security number</span>
+    </div>
+
+    <br>
+
+    <button id='bt_submit' type="submit">submit</button>
+
+</form>
+
+<script>
+
+//    let bt_submit = getElementById('bt_submit');
+
+//    bt_submit.onclick = function() {
+        let username_input = document.querySelector('#username_input');
+        let username_error = document.querySelector('#username_error');
+        username_input.oninput = function() {
+            if (this.value.length <= 5) {
+                this.style.outline = '1px solid red';
+                username_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                username_error.style.display = 'none';
+            }
+        };
+
+        let password_input = document.querySelector('#password_input');
+        let password_error = document.querySelector('#password_error');
+        password_input.oninput = function() {
+            if (this.value.length <= 5) {
+                this.style.outline = '1px solid red';
+                password_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                password_error.style.display = 'none';
+            }
+        };
+
+        let name_input = document.querySelector('#name_input');
+        let name_error = document.querySelector('#name_error');
+        name_input.oninput = function() {
+            let pattern = /^([\w-]+ [\w-]+)$/;
+                if (!pattern.test(this.value)) {
+                this.style.outline = '1px solid red';
+                name_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                name_error.style.display = 'none';
+            }
+        };
+
+        let email_input = document.querySelector('#email_input');
+        let email_error = document.querySelector('#email_error');
+        email_input.oninput = function() {
+            let pattern = /^[A-Za-z0-9\-.]+@[A-Za-z]+\.\w+$/;
+            if (!pattern.test(this.value)) {
+                this.style.outline = '1px solid red';
+                email_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                email_error.style.display = 'none';
+            }
+        };
+
+        let phone_input = document.querySelector('#phone_input');
+        let phone_error = document.querySelector('#phone_error');
+        phone_input.oninput = function() {
+            let pattern = /^\(*\d{3}[) \-.]\d{3}[ \-.]\d{4}$/;        // this does an american phone number, with parens/hyphens/periods/spaces but not NO spaces, and not extensions or non-american nubmers
+            if (!pattern.test(this.value)) {
+                this.style.outline = '1px solid red';
+                phone_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                phone_error.style.display = 'none';
+            }
+        };
+
+        let birthday_input = document.querySelector('#birthday_input');
+        let birthday_error = document.querySelector('#birthday_error');
+        birthday_input.oninput = function() {
+        let pattern = /^\d{2}[\/\-]\d{2}[\/\-]\d{2,4}$/;        // as written, does date with - or /. Requires 0 for single digits. Will accept a 3-digit year
+            if (!pattern.test(this.value)) {
+                this.style.outline = '1px solid red';
+                birthday_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                birthday_error.style.display = 'none';
+            }
+        };
+
+        let ssnumber_input = document.querySelector('#ssnumber_input');
+        let ssnumber_error = document.querySelector('#ssnumber_error');
+        ssnumber_input.oninput = function() {
+            let pattern = /^\d{3}[ \-]\d{2}[ \-]\d{4}$/;        // tests for ss number entered with spaces or hyphens
+            if (!pattern.test(this.value)) {
+                this.style.outline = '1px solid red';
+                ssnumber_error.style.display = 'inline';
+            } else {
+                this.style.outline = '1px solid black';
+                ssnumber_error.style.display = 'none';
+            }
+        };
+
+</script>
+
+
+</body>
+</html>
+
+

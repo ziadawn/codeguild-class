@@ -18,45 +18,70 @@
 
         div {
             font-size: large;
+            border-radius: 15px;
             margin-top: 10px;
             color: black;
             background: greenyellow;
             padding: 10px;
-            width: 250px;
+            width: 225px;
+
     </style>
 
     <script>
 
+
+
     window.onload = function() {
 
-        function pick_target_number() {
-            let target_num = Math.floor(Math.random() * 50);
+
+        let bt_guess = document.getElementById('bt_guess');
+        let guess_input = document.getElementById('guess_input');
+
+        function pick_target_number() {             // picks a random number
+            let target_num = Math.floor(Math.random() * 50);    // between 0 and 50
             return target_num;
         }
 
         let target_number = pick_target_number();
 
-        function check_guess(guess, target) {
-            if (guess === target) {
-                return guess + ' is the number. Good job!';
-            }
-            else if (guess >= target) {
-                return guess + ' is too high. Guess lower!';
-            }
-            else if (guess <= target) {
-                return guess + ' is too low. Guess higher!';
-            }
+        let num_guesses = 0;
+
+        function check_guess(guess, target) {       // function to check if user's guess matches target number above
+            num_guesses += 1;
+            {
+                if (guess === target) {
+                    bt_guess.innerText = 'play again!';      // need to make button go back to "guess" after you click play again
+                    bt_guess.onclick = new_game;
+                    document.getElementById('win_stats').innerText += `You won in ${num_guesses} attempts \n`;
+                    return guess + ' is the number. Good job!';
+                }
+                else if (guess >= target) {
+                    return guess + ' is too high. Guess lower!';
+                }
+                else if (guess <= target) {
+                    return guess + ' is too low. Guess higher!';
+                }
+            } // return num_guesses;
         }
 
-        let bt_guess = document.getElementById('bt_guess');
-
-        bt_guess.onclick = function () {
-            let guess_input = document.getElementById('guess_input');
+        function game_play() {
             let result = check_guess(parseInt(guess_input.value), target_number);
             document.getElementById('guesses').innerText += result + '\n';
-
 //            alert(check_guess(parseInt(guess_input.value), target_number));
-        };
+            console.log('!!!!!');
+        }
+
+        function new_game() {
+           bt_guess.innerText = 'guess!';
+           document.getElementById('guesses').innerText = '';
+           guess_input.value = '';
+           num_guesses = 0;
+           target_number = pick_target_number();
+           bt_guess.onclick = game_play;
+        }
+
+
+        bt_guess.onclick = game_play;
 
     }
     </script>
@@ -69,10 +94,9 @@
     <input id="guess_input" type="text" placeholder="enter a number"/>
     <button id="bt_guess">guess!</button>
 
-    <div id="guesses">
-    </div>
+    <div id="guesses">Your guesses: <br></div>
+
+    <div id="win_stats">Your win stats: <br></div>
 
 </body>
 </html>
-
-

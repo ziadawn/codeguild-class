@@ -1,0 +1,7 @@
+<h1>Zia's URL Shortener</h1>
+
+<form action="{% url 'shorturl:saveurl' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="text"/>
+    <button type="submit">shorten me!</button>
+</form>

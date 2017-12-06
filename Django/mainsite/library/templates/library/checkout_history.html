@@ -1,0 +1,22 @@
+<h2>Checkout History:</h2>
+
+{#<form action="{% url 'library:checkout' %}" method="post">#}
+{#    {% csrf_token %}#}
+{#    <select name="book">#}
+{#        {% for book in books %}     {#books is the list from views#}
+{#            <option value="{{ book.id }}">{{ book }}</option>#}
+{#        {% endfor %}#}
+{#    </select>#}
+{#        <br>#}
+{#    <input type="text" name="user" placeholder="your name">#}
+{#        <br>#}
+{#    <input type="radio" name="check" value="in"> Check In<br>#}
+{#    <input type="radio" name="check" value="out"> Check Out<br>#}
+{#    <button type="submit">check out/in book</button>#}
+{#</form>#}
+
+<ul>
+    {% for entry in history %}
+    <li> {{ entry.book }} {{ entry.user }} {{ entry.timestamp }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,42 @@
+{## once there's a variable from the views field we can parse it out here yay #}
+
+<h2>All Books:</h2>
+
+
+<ul>
+    {% for book in books %}     {#books is the list from views#}
+    <li> {{ book }} by {{ book.author }}</li>
+    {% endfor %}
+</ul>
+
+<form action="">
+
+</form>
+
+<form action="{% url 'library:checkout' %}" method="post">
+    {% csrf_token %}
+    <select name="book">
+        {% for book in books %}     {#books is the list from views#}
+            <option value="{{ book.id }}">{{ book }}</option>
+        {% endfor %}
+    </select>
+        <br>
+    <input type="text" name="user" placeholder="your name">
+        <br>
+    <input type="radio" name="check" value="in"> Check In<br>
+    <input type="radio" name="check" value="out"> Check Out<br>
+    <button type="submit">check out/in book</button>
+</form>
+
+{#<h1>Availble Books</h1>#}
+{##}
+{#{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}#}
+{##}
+{#<form action="{%  url 'poll:vote' question.id %}" method="post">#}
+{#    {%  csrf_token %}#}
+{#    {%  for choice in question.choice_set.all %}#}
+{#        <input type="radio" name="choice" id="choice"{{  forloop.counter }} value="{{ choice.id }}" />#}
+{#        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>#}
+{#    {% endfor %}#}
+{#    <input type="submit" value="Vote"/>#}
+{#</form>#}

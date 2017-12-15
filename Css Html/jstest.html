@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User API Lab</title>
+    <meta name="user_api" content="user API">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+            function http_get(url, success) {
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let data = JSON.parse(xhttp.responseText);
+                        success(data);
+                    }
+                };
+                xhttp.open("GET", url);
+                xhttp.send();
+            }
+        </script>
+
+</head>
+
+<body>
+
+    <div id="user_data"></div>          <!-- div to hold user data -->
+    <div id="page_buttons"></div>       <!-- div to hold created buttons -->
+
+
+    <script>
+        let page = 2;           // make page variable so we can see all teh pages yay
+
+
+
+
+
+        http_get(`https://reqres.in/api/users?page=${page}`, function(data) {
+            for (let i = 0; i < data.data.length; ++i) {
+                console.log(data);
+                let user = data.data[i];
+                let div = document.createElement('div');
+                let img = document.createElement('img');
+//                let page_num = document.create
+                img.setAttribute('src', user.avatar);
+                div.innerText='Name: ' + user.first_name + ' ' + user.last_name;
+                document.getElementById('user_data').appendChild(div);
+                div.appendChild(img);
+                console.log(user.first_name)
+            }
+                console.log(data);
+        });
+
+//        http_get(`https://reqres.in/api/users?page=${page}`, function(data) {
+//            for (let i = 0; i < data.data.length; ++i) {
+//                console.log(data);
+//                let bt_page = document.createElement('bt_page').innerHTML = `Page ${page_num}`;
+//                document.getElementById('page_buttons').appendChild(div);
+//                console.log(user.first_name)
+//            }
+
+
+
+//        let bt_page = document.createElement('bt_page').innerHTML = `Page ${page_num}`;
+//        document.getElementById('page_buttons').appendChild(div);
+
+    </script>
+
+</body>
+
+<!--document.createElement button-->
+<!--set inner text-->
+<!--append to container div-->
+<!--set onclick event to do anohter ajax request-->
+

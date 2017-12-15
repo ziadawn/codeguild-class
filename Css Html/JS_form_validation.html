@@ -15,7 +15,7 @@
         <span id="username_error" style="display:none;color:red;">Username must be at least 6 characters</span>
     </div>
 
-    <div>
+    <div>   // setting type as "password" makes the entry secret
         Password: <input id="password_input" type="password" name="password" placeholder="enter at least 6 characters and one special character">
          <span id="password_error" style="display:none;color:red;">Password must be at least 6 characters</span>
     </div>
@@ -59,7 +59,7 @@
         let username_input = document.querySelector('#username_input');
         let username_error = document.querySelector('#username_error');
         username_input.oninput = function() {
-            if (this.value.length <= 5) {
+            if (this.value.length <= 5) {                   // username requirement
                 this.style.outline = '1px solid red';
                 username_error.style.display = 'inline';
             } else {
@@ -71,7 +71,7 @@
         let password_input = document.querySelector('#password_input');
         let password_error = document.querySelector('#password_error');
         password_input.oninput = function() {
-            if (this.value.length <= 5) {
+            if (this.value.length <= 5) {                   // username requirement
                 this.style.outline = '1px solid red';
                 password_error.style.display = 'inline';
             } else {
@@ -83,7 +83,7 @@
         let name_input = document.querySelector('#name_input');
         let name_error = document.querySelector('#name_error');
         name_input.oninput = function() {
-            let pattern = /^([\w-]+ [\w-]+)$/;
+            let pattern = /^([\w-]+ [\w-]+)$/;              // name requirement. Handles hyphens, requires two names (first and last)
                 if (!pattern.test(this.value)) {
                 this.style.outline = '1px solid red';
                 name_error.style.display = 'inline';
@@ -96,7 +96,7 @@
         let email_input = document.querySelector('#email_input');
         let email_error = document.querySelector('#email_error');
         email_input.oninput = function() {
-            let pattern = /^[A-Za-z0-9\-.]+@[A-Za-z]+\.\w+$/;
+            let pattern = /^[A-Za-z0-9\-.]+@[A-Za-z]+\.\w+$/;   // email requirement. Letters and numbers, @, letters, .whatever
             if (!pattern.test(this.value)) {
                 this.style.outline = '1px solid red';
                 email_error.style.display = 'inline';

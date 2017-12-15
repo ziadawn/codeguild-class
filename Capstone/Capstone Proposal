@@ -10,16 +10,17 @@ Name  -- ?
 Project Overview
 
 What are the major features of your web application?
+    Users enter a few keywords, and
     A program that helps users put together an adventure itinerary, scavenger-hunt style.
     They enter a starting point (or it connects to GPS?) and they go to things, then it gives the next spot.
 
 
 What problem is it attempting to solve?
-    This is to help them discover new adventures in their city, plan dates, etc.
+    This is to help them discover new adventures in their city, plan dates, etc, from one unified platform.
 
 
 What libraries or frameworks will you use?
-    -- ?
+    Investigating jQuery, React, and maybe Vue
 
 ===========================================
 

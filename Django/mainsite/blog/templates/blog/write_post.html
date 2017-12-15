@@ -1,0 +1,13 @@
+{% load static %}
+
+
+
+<a href="{% url 'blog:index' %}">Back to Index</a>
+
+
+<form action="{% url 'blog:write_post' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <textarea name="body"></textarea>
+    <button type="submit">make post</button>
+</form>

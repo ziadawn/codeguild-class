@@ -28,6 +28,9 @@
     <button type="submit">check out/in book</button>
 </form>
 
+{#href makes a hyperlink#}
+<a href="{% url 'library:checkout_history' %}">History</a>
+
 {#<h1>Availble Books</h1>#}
 {##}
 {#{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}#}

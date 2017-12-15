@@ -1,0 +1,7 @@
+body {
+    background-color: #FFF8DC;
+}
+
+.comment:nth-child(odd) {
+    background-color: #508CA4;
+}

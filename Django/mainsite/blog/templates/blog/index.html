@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+<h3>Recent Blog Posts</h3>
+
+<button>Log In</button>
+
+<ul>
+    {% for post in posts %}     {#blog_entries is the list from views#}
+{#    <li> {{ post }} by {{ post.post_author }}</li>#}
+    <a href="{% url 'blog:post_detail' post.id %}"><li> {{ post }} by {{ post.poster }}</li></a>
+    {% endfor %}
+</ul>
+

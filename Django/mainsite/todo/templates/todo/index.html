@@ -25,11 +25,12 @@
 
 <form action="{% url 'todo:savetodo' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="todo_text"/>
+    <input type="text" name="text"/>
     <button type="submit">add to do</button>
 </form>
 
 
+{#creates list of todos#}
 <ul>
     {% for todo_item in todo_items %}
     <li> {{ todo_item.todo_text}}</li>

@@ -23,7 +23,7 @@ class Book(models.Model):
     #     return self.publish_date
 
 class Checkout(models.Model):
-    book = models.ForeignKey(Book)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.CharField(max_length=200)
     checkout = models.BooleanField()
     timestamp = models.DateTimeField(default=timezone.now)
